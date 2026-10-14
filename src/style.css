@@ -21,6 +21,7 @@ button {
   border-radius: 10px;
   border: none;
   background-color: lightgreen;
+  margin: auto;
 }
 
 #app {

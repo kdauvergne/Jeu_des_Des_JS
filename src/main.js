@@ -1,4 +1,5 @@
-//-------------- Jeu des Dés --------------//
+import party from "party-js";
+import { nettoyage } from "./sanitizer"; //-------------- Jeu des Dés --------------//
 /* 
 Nous avons un jeu de dés que nous souhaitons automatiser.
 Les règles du jeu de dés sont les suivantes:
@@ -137,4 +138,24 @@ bouton.addEventListener("click", () => {
   );
 
   partie1.lancerPartie();
+});
+
+const btnParty = document.getElementById("btnParty");
+
+btnParty.addEventListener("click", () => {
+  party.confetti(btnParty, {
+    count: party.variation.range(20, 40),
+  });
+});
+
+const input = document.getElementById("input");
+const btnSubmit = document.getElementById("submit");
+
+btnSubmit.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  console.log(input.value);
+  const cleaned = nettoyage(input.value);
+  console.log(cleaned);
+  return cleaned;
 });
